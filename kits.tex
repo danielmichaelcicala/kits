@@ -1,0 +1,120 @@
+\documentclass{article}
+\usepackage{amsthm,tikz}
+\usetikzlibrary{cd}
+
+%---------------------------------------------------------------	
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}[definition]{Proposition}   
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{lemma}[definition]{Lemma}   
+\newtheorem{corollary}[definition]{Corollary}   
+
+\theoremstyle{remark}
+\newtheorem{example}[definition]{Example}
+\newtheorem*{example*}{Example}
+\newtheorem{remark}[definition]{Remark}
+
+%---------------------------------------------------------------
+
+\title{Kits, or whatever they'll come to be called}
+\author{}
+\date{}
+
+%---------------------------------------------------------------
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+Kits are an algebraic structure that models networking.
+
+\section{Definition}
+
+A \emph{typed finite set} (with respect to some set of types $T$) is a finite
+set $B$ together with a function $B \to T$.
+
+A \emph{typed equivalence relation} between typed finite sets $B$ and $C$ is a
+function $e\colon B+C \to P$ and a map $P \to T$ such that
+\[
+\begin{tikzcd}
+B+C \ar[rr, "e"] \ar[dr] && P \ar[dl]\\
+& T
+\end{tikzcd}
+\]
+commutes. We can compose equivalence relations by taking the finest equivalence
+relation that is coarser than the factors.
+
+\begin{definition}
+A \emph{kit} $K$ is
+\begin{itemize}
+\item a collection of \emph{types} $T$;
+\item for all typed finite sets $B$ over $T$ (called a \emph{boundary}), a set
+of \emph{networks} $K_B$;
+\item for all boundaries $B$, $C$, a map $K_B\times K_C \to K_{B+C}$;
+\item for all boundaries $B$, $C$ and all typed equivalence relations $e\colon B
+\to C$, a function $K_e\colon K_B \to K_C$ (called \emph{composition along
+$e$});
+\end{itemize}
+obeying the axioms
+\end{definition}
+
+A morphism of kits $K \to K'$ is a function on types $f\colon T \to T'$ for all
+boundaries $B$ in $T$ a function $K_B \to K_{f(B)}$ obeying some naturality
+requirements.
+
+\section{First examples}
+\subsection{The kit of open graphs}
+Networks are open graphs
+
+\subsection{The kit of colimits}
+Networks are wide cospans.
+
+\subsection{The kit of black boxed colimits}
+Networks are wide corelations.
+
+\section{The category of kits}
+
+\subsection{Limits}
+
+\begin{example}
+Terminal kit
+\end{example}
+
+\begin{example}
+Products of kits
+\end{example}
+
+
+\subsection{Colimits}
+\begin{example}
+Initial kit
+\end{example}
+\begin{example}
+Coproducts of kits
+\end{example}
+
+\section{Presenting kits}
+\subsection{Signatures}
+A signature for a kit is a collection of types and a set of networks for each
+type.
+\subsection{The free kit on a signature}
+This defines an adjunction between signatures and kits.
+
+
+\section{Hypergraph categories}
+
+This are equivalent to kits.
+\subsection{Frobenius monoids}
+
+\section{Constructing kits using decorated corelations}
+Decorated corelations freely constructs kits given some kit structure.
+\subsection{Decorated cospans}
+
+\subsection{Decorated corelations}
+
+\section{Kits as operad algebras}
+Kits are algebras for the corelation operad.
+
+\end{document}
